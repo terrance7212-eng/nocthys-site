@@ -1,0 +1,4 @@
+Header set Cache-Control "public, s-maxage=0, max-age=0, must-revalidate"
+<If "%{REQUEST_URI} =~ m#^/assets/.*$#">
+    Header set Cache-Control "public, s-maxage=31536000, max-age=31536000, immutable"
+</If>
