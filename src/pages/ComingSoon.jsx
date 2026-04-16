@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 // ─── LAUNCH DATE ─────────────────────────────────────────────────────────────
 // Set this when you have a date. Format freely, e.g. "JULY 2026" or "07.15.2026"
-const LAUNCH_DATE = null; // null shows "DATE TBD"
+const LAUNCH_DATE = null; // null shows "DATE TBD" — deploy test
 // ─────────────────────────────────────────────────────────────────────────────
 
 const ComingSoon = () => {
