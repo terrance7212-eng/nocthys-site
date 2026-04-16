@@ -1,0 +1,52 @@
+name: Build and Deploy Coming Soon
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm install
+
+      - run: npm run build:coming-soon
+
+      # Hostinger needs index.html at root
+      - name: Rename coming-soon.html to index.html
+        run: mv dist-coming-soon/coming-soon.html dist-coming-soon/index.html
+
+      # Add cache headers for Hostinger CDN
+      - name: Write .htaccess
+        run: |
+          cat > dist-coming-soon/.htaccess << 'HTACCESS'
+          # HTML — never CDN-cached
+          Header set Cache-Control "public, s-maxage=0, max-age=0, must-revalidate"
+
+          # Hashed assets — cache 1 year
+          <If "%{REQUEST_URI} =~ m#^/assets/.*$#">
+              Header set Cache-Control "public, s-maxage=31536000, max-age=31536000, immutable"
+          </If>
+          HTACCESS
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist-coming-soon
+          publish_branch: deploy
+          force_orphan: false
+
+      - name: Notify Hostinger to pull
+        if: ${{ secrets.HOSTINGER_DEPLOY_WEBHOOK != '' }}
+        run: curl -s -X POST ${{ secrets.HOSTINGER_DEPLOY_WEBHOOK }}
