@@ -72,7 +72,7 @@ const ComingSoon = () => {
               style={{ background: 'radial-gradient(ellipse, rgba(200,200,220,0.12) 0%, transparent 70%)', filter: 'blur(8px)' }}
             />
             <img
-              src="/images/apple.png"
+              src="/images/apple.webp"
               alt="Chrome apple — the forbidden fruit"
               className="w-52 sm:w-64 md:w-72 lg:w-80 aspect-square object-contain relative z-10"
               style={{ filter: 'drop-shadow(0 8px 48px rgba(180,180,210,0.18)) drop-shadow(0 0 80px rgba(140,140,170,0.10))' }}
