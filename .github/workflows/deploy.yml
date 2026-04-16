@@ -23,18 +23,13 @@ jobs:
 
       - run: npm run build:coming-soon
 
-      # Hostinger needs index.html at root
       - name: Rename coming-soon.html to index.html
         run: mv dist-coming-soon/coming-soon.html dist-coming-soon/index.html
 
-      # Add cache headers for Hostinger CDN
       - name: Write .htaccess
         run: |
           cat > dist-coming-soon/.htaccess << 'HTACCESS'
-          # HTML — never CDN-cached
           Header set Cache-Control "public, s-maxage=0, max-age=0, must-revalidate"
-
-          # Hashed assets — cache 1 year
           <If "%{REQUEST_URI} =~ m#^/assets/.*$#">
               Header set Cache-Control "public, s-maxage=31536000, max-age=31536000, immutable"
           </If>
@@ -48,5 +43,4 @@ jobs:
           force_orphan: false
 
       - name: Notify Hostinger to pull
-        if: ${{ secrets.HOSTINGER_DEPLOY_WEBHOOK != '' }}
         run: curl -s -X POST ${{ secrets.HOSTINGER_DEPLOY_WEBHOOK }}
