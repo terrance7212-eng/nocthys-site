@@ -45,7 +45,7 @@ const ComingSoon = () => {
           className="relative z-10 flex items-center justify-between px-8 md:px-16 pt-8 pb-4"
         >
           <img
-            src="/images/logo.png"
+            src="/images/logo.webp"
             alt="NOCTHYS"
             className="h-8 md:h-10 object-contain"
             style={{ filter: 'drop-shadow(0 0 12px rgba(255,255,255,0.06))' }}

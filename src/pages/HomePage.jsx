@@ -52,7 +52,7 @@ const HomePage = () => {
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
             <motion.img
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="NOCTHYS"
               className="w-[92vw] md:w-[41rem] lg:w-[60rem] mx-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]"
               initial={{ opacity: 0, y: -20 }}

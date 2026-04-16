@@ -132,7 +132,7 @@ const CheckoutModal = ({ total, items, onClose }) => {
               {/* Header */}
               <div className="px-7 pt-7 pb-5 border-b border-white/[0.07]">
                 <div className="flex items-center gap-3 mb-4">
-                  <img src="/images/logo.png" alt="NOCTHYS" className="h-6 object-contain" />
+                  <img src="/images/logo.webp" alt="NOCTHYS" className="h-6 object-contain" />
                 </div>
                 <div className="flex items-baseline justify-between">
                   <span className="text-gray-500 text-sm">Order total</span>
