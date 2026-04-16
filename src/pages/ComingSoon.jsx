@@ -74,7 +74,7 @@ const ComingSoon = () => {
             <img
               src="/images/apple.png"
               alt="Chrome apple — the forbidden fruit"
-              className="w-52 sm:w-64 md:w-72 lg:w-80 relative z-10"
+              className="w-52 sm:w-64 md:w-72 lg:w-80 aspect-square object-contain relative z-10"
               style={{ filter: 'drop-shadow(0 8px 48px rgba(180,180,210,0.18)) drop-shadow(0 0 80px rgba(140,140,170,0.10))' }}
             />
           </motion.div>
