@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 // ─── LAUNCH DATE ─────────────────────────────────────────────────────────────
 // Set this when you have a date. Format freely, e.g. "JULY 2026" or "07.15.2026"
-const LAUNCH_DATE = null; // null shows "DATE TBD" — deploy test
+const LAUNCH_DATE = null; // null shows "DATE TBD"
 // ─────────────────────────────────────────────────────────────────────────────
 
 const ComingSoon = () => {
@@ -127,7 +127,7 @@ const ComingSoon = () => {
           className="relative z-10 text-center pb-8 pt-4"
         >
           <p className="text-gray-800 text-xs tracking-widest uppercase">
-            © 2026 NOCTHYS — All rights reserved
+            © 2026 NOCTHYS. All rights reserved.
           </p>
         </motion.footer>
 
