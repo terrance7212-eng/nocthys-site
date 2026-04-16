@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 
@@ -8,17 +8,6 @@ const LAUNCH_DATE = null; // null shows "DATE TBD"
 // ─────────────────────────────────────────────────────────────────────────────
 
 const ComingSoon = () => {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      setEmail('');
-    }
-  };
-
   return (
     <>
       <Helmet>
@@ -85,7 +74,7 @@ const ComingSoon = () => {
             <img
               src="/images/apple.png"
               alt="Chrome apple — the forbidden fruit"
-              className="w-64 sm:w-80 md:w-96 lg:w-[26rem] relative z-10"
+              className="w-52 sm:w-64 md:w-72 lg:w-80 relative z-10"
               style={{ filter: 'drop-shadow(0 8px 48px rgba(180,180,210,0.18)) drop-shadow(0 0 80px rgba(140,140,170,0.10))' }}
             />
           </motion.div>
@@ -95,7 +84,7 @@ const ComingSoon = () => {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45 }}
-            className="text-center mt-10 mb-2"
+            className="text-center mt-6 mb-3"
           >
             <p className="text-gray-600 tracking-[0.4em] uppercase text-xs md:text-sm font-medium mb-3">
               The void awakens
@@ -113,7 +102,6 @@ const ComingSoon = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="mb-10"
           >
             {LAUNCH_DATE ? (
               <span
@@ -126,62 +114,6 @@ const ComingSoon = () => {
               <span className="text-gray-700 tracking-[0.35em] uppercase text-sm font-medium">
                 — &nbsp; Date TBD &nbsp; —
               </span>
-            )}
-          </motion.div>
-
-          {/* Divider */}
-          <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 0.9, delay: 0.85 }}
-            className="w-px h-10 bg-gradient-to-b from-transparent via-white/20 to-transparent mb-10"
-          />
-
-          {/* Tag line */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.95 }}
-            className="text-gray-500 text-center text-sm md:text-base leading-relaxed max-w-xs md:max-w-md mb-10 tracking-wide"
-          >
-            Gothic darkness meets Y2K chrome futurism.<br />
-            Pure black void broken only by liquid metal shine.
-          </motion.p>
-
-          {/* Email form */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.1 }}
-            className="w-full max-w-sm md:max-w-md"
-          >
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-4"
-              >
-                <p className="chrome-text font-semibold tracking-widest uppercase text-sm md:text-base">
-                  The void remembers you.
-                </p>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  required
-                  className="flex-1 min-w-0 bg-white/[0.04] border border-white/[0.12] rounded-lg px-4 py-3 text-gray-200 placeholder-gray-700 text-sm focus:outline-none focus:border-white/30 transition-colors"
-                />
-                <button
-                  type="submit"
-                  className="shrink-0 px-5 py-3 bg-white/[0.08] border border-white/[0.15] text-gray-200 text-sm font-semibold rounded-lg hover:bg-white/[0.13] hover:border-white/30 transition-all duration-200 tracking-widest uppercase"
-                >
-                  Notify
-                </button>
-              </form>
             )}
           </motion.div>
 
